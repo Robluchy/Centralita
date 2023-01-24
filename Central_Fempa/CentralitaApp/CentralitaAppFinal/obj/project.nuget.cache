@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GqlQYswSA/FeXpfA64IDaPCMYMqvkiy0IRXxD7iJt9mPMa7Ivx+Pk8g1HXvO+ruHYSJdw/g3oTuX65h2xF65mA==",
+  "dgSpecHash": "RoNdV04sM1UcjuIlpLAo4ji8v/yynAgBqUR/PtQNcXIw6MpND+zmS0HvjAJalMPM+ov6zqkaE2/rgI751EPSzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Portátil Miguel\\OneDrive\\Escritorio\\CentralitaAppFinal\\CentralitaAppFinal\\CentralitaAppFinal.csproj",
+  "projectFilePath": "C:\\Users\\34654\\Videos\\Captures\\Centralita\\Central_Fempa\\CentralitaApp\\CentralitaAppFinal\\CentralitaAppFinal.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Portátil Miguel\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
+    "C:\\Users\\34654\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512"
   ],
   "logs": []
 }
