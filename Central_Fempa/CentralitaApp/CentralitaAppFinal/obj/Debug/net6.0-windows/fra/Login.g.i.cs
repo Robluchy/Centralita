@@ -77,7 +77,7 @@ namespace CentralitaAppFinal.fra {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CentralitaAppFinal;V1.0.0.0;component/fra/login.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CentralitaAppFinal;component/fra/login.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\fra\Login.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

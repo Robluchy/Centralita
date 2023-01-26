@@ -69,7 +69,7 @@ namespace CentralitaAppFinal {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CentralitaAppFinal;V1.0.0.0;component/registrardepartamento.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CentralitaAppFinal;component/registrardepartamento.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\registrarDepartamento.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

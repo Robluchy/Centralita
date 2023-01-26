@@ -50,7 +50,7 @@
         <TextBox x:Name="contraseña" Grid.Row="6" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
 
         <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Left" Width="148" Grid.ColumnSpan="2" Margin="339,0,0,0">
-            <Button x:Name="btnrechazar" Content="registrar" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="100" Click="btnrechazar_Click"/>
+            <Button x:Name="btnrechazar" Content="registrar" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="100"/>
         </StackPanel>
 
 

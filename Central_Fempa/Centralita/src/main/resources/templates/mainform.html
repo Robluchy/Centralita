@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Main form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <form class="centro" method="post" action="">
+      <h1>Recogida de datos</h1>
+      <div>
+        <label for="nombreYApellido">Nombre:</label>
+        <input
+          class="buscar"
+          type="text"
+          name="nombreYApellido"
+          id="nombreYApellido"
+          required
+          placeholder="Nombre y apellido"
+        />
+      </div>
+      <div>
+        <label for="correo">Correo:</label>
+        <input
+          type="email"
+          name="correo"
+          class="buscar"
+          id="correo"
+          required
+          placeholder="Correo"
+        />
+      </div>
+      <div>
+        <label for="empresa">Empresa:</label>
+        <input
+          type="text"
+          name="empresa"
+          class="buscar"
+          id="empresa"
+          required
+          placeholder="Empresa"
+        />
+      </div>
+      <div>
+        <label for="telefono">Teléfono:</label>
+        <input
+          type="text"
+          name="telefono"
+          class="buscar"
+          id="telefono"
+          required
+          placeholder="Teléfono"
+        />
+      </div>
+      <div>
+        <label for="fecha">Fecha:</label>
+        <input
+          type="text"
+          name="fecha"
+          class="buscar"
+          id="fecha"
+          required
+          placeholder="Fecha"
+        />
+      </div>
+      <div>
+        <label for="motivo">Motivo:</label>
+        <input
+          type="text"
+          name="motivo"
+          id="motivo"
+          class="buscar"
+          required
+          placeholder="Motivo"
+        />
+      </div>
+      <div>
+        <label for="empleado">Empleado:</label>
+        <select class="buscar" name="empleado" id="empleado" required>
+          <option>foo</option>
+          <option>bar</option>
+        </select>
+      </div>
+      <div>
+        <span>Observaciones:</span>
+        <br />
+        <textarea
+          style="resize: none"
+          rows="5"
+          class="buscar"
+          name="observaciones"
+          id="observaciones"
+          required
+          placeholder="Observaciones"
+        >
+        </textarea>
+      </div>
+      <div>
+        <button class="btnColores" style="background-color: #403df5">
+          Llamada pasada
+        </button>
+        <button class="btnColores" style="background-color: #3df55c">
+          Enviar correo
+        </button>
+        <button class="btnColores" style="background-color: #caf04f">
+          Atiende recepción
+        </button>
+        <button class="btnColores" style="background-color: #ed2d2d">
+          Rechazar
+        </button>
+      </div>
+    </form>
+  </body>
+</html>

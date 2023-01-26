@@ -37,3 +37,36 @@ C:\Users\Portátil Miguel\OneDrive\Escritorio\CentralitaAppFinal\CentralitaAppFi
 C:\Users\Portátil Miguel\OneDrive\Escritorio\CentralitaAppFinal\CentralitaAppFinal\obj\Debug\net6.0-windows\fra\Login.g.cs
 C:\Users\Portátil Miguel\OneDrive\Escritorio\CentralitaAppFinal\CentralitaAppFinal\obj\Debug\net6.0-windows\Admin.baml
 C:\Users\Portátil Miguel\OneDrive\Escritorio\CentralitaAppFinal\CentralitaAppFinal\obj\Debug\net6.0-windows\fra\Login.baml
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.csproj.AssemblyReference.cache
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\Admin.g.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\fra\Login.g.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\recogidaDeDatos.g.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\registrarDepartamento.g.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\registrarEmpleado.g.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal_MarkupCompile.cache
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal_MarkupCompile.lref
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.dll
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\refint\CentralitaAppFinal.dll
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.pdb
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\bin\Debug\net6.0-windows\CentralitaAppFinal.exe
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\bin\Debug\net6.0-windows\CentralitaAppFinal.deps.json
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\bin\Debug\net6.0-windows\CentralitaAppFinal.runtimeconfig.json
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\bin\Debug\net6.0-windows\CentralitaAppFinal.dll
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\bin\Debug\net6.0-windows\CentralitaAppFinal.pdb
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\Admin.baml
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\fra\Login.baml
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\recogidaDeDatos.baml
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\registrarDepartamento.baml
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\registrarEmpleado.baml
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.g.resources
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.AssemblyInfoInputs.cache
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.AssemblyInfo.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.csproj.CoreCompileInputs.cache
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.csproj.CopyComplete
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.genruntimeconfig.cache
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\ref\CentralitaAppFinal.dll

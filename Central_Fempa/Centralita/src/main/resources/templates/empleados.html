@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insertar empleados</title>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <form class="centro" method="post" action="">
+      <h1>Insertar empleado</h1>
+      <div>
+        <label for="nombreyapellido">Nombre y apellidos:</label>
+        <input
+          class="buscar"
+          type="text"
+          id="nombreyapellido"
+          name="nombreyapellido"
+          required
+        />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input class="buscar" type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="dni">Dni:</label>
+        <input class="buscar" type="text" id="dni" name="dni" required />
+      </div>
+      <div>
+        <label for="telefono">Telefono:</label>
+        <input
+          class="buscar"
+          type="number"
+          id="telefono"
+          name="telefono"
+          required
+        />
+      </div>
+      <div>
+        <label for="departamento">Departamento:</label>
+        <select class="buscar" id="departamento" name="departamento">
+          <option>foo</option>
+          <option>bar</option>
+        </select>
+      </div>
+      <div>
+        <label for="rol">Rol</label>
+        <select class="buscar" id="rol" name="rol">
+          <option>foo</option>
+          <option>bar</option>
+        </select>
+      </div>
+      <div>
+        <label for="contraseña">Contraseña:</label>
+        <input
+          class="buscar"
+          type="password"
+          id="contraseña"
+          name="contraseña"
+          required
+        />
+      </div>
+      <button class="btnEnviar" type="submit">Enviar</button>
+    </form>
+  </body>
+</html>
