@@ -3,6 +3,7 @@ using CentralitaAppFinal.fra;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,11 +23,15 @@ namespace CentralitaAppFinal
     /// </summary>
     public partial class MainWindow : Window
     {
+        static HttpClient client = new HttpClient();
+        List<Usuario> users = new List<Usuario>();
+        string user = "http://localhost:8080/users";
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        
         private void inicio_sesion_Click(object sender, RoutedEventArgs e)
         {
             

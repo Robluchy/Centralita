@@ -31,7 +31,7 @@
         <Label Content="NOMBRE DEPARTAMENTO :" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Margin="148,18,0,0"  />
         <TextBox x:Name="txtNomDeapartamento" Grid.Row="2" Grid.Column="1"  Margin="10,10,72,10" Width="325" Height="35" />
 
-        <Button x:Name="btnRegistrarDept" Content="Registrar departamento"  FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#fdfd96" Width="180" Height="50" Grid.ColumnSpan="2" Margin="310,59,310,36" Grid.Row="3" Grid.RowSpan="2" />
+        <Button x:Name="btnRegistrarDept" Click="btnRegistrarDept_Click" Content="Registrar departamento"  FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#fdfd96" Height="50" Grid.ColumnSpan="2" Margin="280,63,301,37" Grid.Row="3" Grid.RowSpan="2" />
 
 
 

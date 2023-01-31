@@ -1,0 +1,32 @@
+﻿<Page x:Class="CentralitaAppFinal.MostrarRegistros"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CentralitaAppFinal"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MostrarRegistros">
+
+    <Grid>
+
+        <DataGrid x:Name="grid" d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False" Grid.RowSpan="2" Grid.Row="2" >
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Visibility="Hidden" Header="Indentidador"  Binding="{Binding Path=id}"/>
+                <DataGridTextColumn Header="email" Binding="{Binding Path=email}"/>
+                <DataGridTextColumn Header="empresa" Binding="{Binding Path=empresa}"/>
+                <DataGridTextColumn Header="fecha" Binding="{Binding Path=fecha_hora}"/>
+                <DataGridTextColumn Header="motivo" Binding="{Binding Path=motivo}"/>
+                <DataGridTextColumn Header="nombre" Binding="{Binding Path=nombre_persona}"/>
+                <DataGridTextColumn Header="observaciones" Binding="{Binding Path=observaciones}"/>
+                <DataGridTextColumn Header="telefono" Binding="{Binding Path=telefono_persona}"/>
+                <DataGridTextColumn Header="atiende" Binding="{Binding Path=atendido_por_id}"/>
+                <DataGridTextColumn Header="empleado" Binding="{Binding Path=empleado_id}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

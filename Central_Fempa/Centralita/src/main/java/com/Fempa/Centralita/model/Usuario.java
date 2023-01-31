@@ -18,10 +18,6 @@ public class Usuario {
     private String email;
     private String password;
     private int telefono;
-    @ManyToOne
-    @JoinColumn(name = "departamento_id")
-    @JsonIgnore
-    private Departamento departamento;
     @Column(columnDefinition = "boolean default false")
     private Boolean rol;
     @OneToMany (mappedBy = "atendido_por")
@@ -35,18 +31,21 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellidos, String dni, String email, String password, int telefono, Departamento departamento, Boolean rol) {
+    public Usuario(
+            String nombre, String apellidos, String dni, String email, String password, int telefono,
+                   Boolean rol) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.email = email;
         this.password = password;
         this.telefono = telefono;
-        this.departamento = departamento;
         this.rol = rol;
     }
 
-    public Usuario(Long id, String nombre, String apellidos, String dni, String email, String password, int telefono, Departamento departamento, Boolean rol, List<Registro> llamadas_atendidos, List<Registro> registros_empleado) {
+    public Usuario(
+            Long id, String nombre, String apellidos, String dni, String email, String password,
+            int telefono, Boolean rol, List<Registro> llamadas_atendidos, List<Registro> registros_empleado) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -54,7 +53,6 @@ public class Usuario {
         this.email = email;
         this.password = password;
         this.telefono = telefono;
-        this.departamento = departamento;
         this.rol = rol;
         this.llamadas_atendidos = llamadas_atendidos;
         this.registros_empleado = registros_empleado;
@@ -116,13 +114,6 @@ public class Usuario {
         this.telefono = telefono;
     }
 
-    public Departamento getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(Departamento departamento) {
-        this.departamento = departamento;
-    }
 
     public Boolean getRol() {
         return rol;
@@ -158,7 +149,6 @@ public class Usuario {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", telefono=" + telefono +
-                ", departamento=" + departamento +
                 ", rol=" + rol +
                 '}';
     }

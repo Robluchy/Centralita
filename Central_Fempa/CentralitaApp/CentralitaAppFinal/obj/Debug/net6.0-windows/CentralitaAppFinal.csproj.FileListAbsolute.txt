@@ -70,3 +70,5 @@ C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\Centralita
 C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.csproj.CopyComplete
 C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\CentralitaAppFinal.genruntimeconfig.cache
 C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\ref\CentralitaAppFinal.dll
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\MostrarRegistros.g.cs
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\MostrarRegistros.baml

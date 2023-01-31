@@ -33,6 +33,7 @@ namespace CentralitaAppFinal
         {
             InitializeComponent();
         }
+        
         private void RegistrarLlamada(string motivo)
         {
             string telefono_persona = txtTelefono.Text;

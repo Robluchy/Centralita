@@ -27,33 +27,27 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="NOMBRE Y APELLIDO :" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" RenderTransformOrigin="0.517,0.383" Margin="200,0,0,0"  />
-        <TextBox x:Name="txtNombre" Grid.Row="0" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10" />
+        <Label Content="NOMBRE Y APELLIDO :"  HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtNombre" Grid.Row="0" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"  />
 
-        <Label Content=" EMAIL :"   Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Margin="200,0,0,0"  />
-        <TextBox x:Name="txtCorreo" Grid.Row="1" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
+        <Label Content=" EMAIL :"   Grid.Row="4" HorizontalAlignment="Center"   FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
+        <TextBox x:Name="txtCorreo" Grid.Row="4" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
 
-        <Label Content="DNI :" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Margin="200,0,0,0"  />
+        <Label Content="DNI :" Grid.Row="2" HorizontalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"/>
         <TextBox x:Name="dni" Grid.Row="2" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
 
-        <Label Content="TELEFONO :"  Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Margin="200,0,0,0"  />
+        <Label Content="TELEFONO :"  Grid.Row="3" HorizontalAlignment="Center"    FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
         <TextBox x:Name="telefono" Grid.Row="3" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
 
 
-        <Label Content="DEPARTAMENTO :" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Margin="200,0,0,0"  />
-        <ComboBox x:Name="cbDepa" Grid.Row="4" Grid.Column="1"  Margin="10,10,72,10" />
+        <Label Content="DEPARTAMENTO :" Grid.Row="5" HorizontalAlignment="Center"   FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center" />
+        <ComboBox x:Name="cbDepa" Grid.Row="5" Grid.Column="1"  Margin="10,10,72,10" />
 
-        <Label Content="ROLE :" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Margin="200,0,0,0"  />
-        <ComboBox x:Name="cbRole" Grid.Row="5" Grid.Column="1"  Margin="10,10,72,10" />
+        <Label Content="CONTRASEÑA :"  Grid.Row="1" HorizontalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center" />
+        <TextBox x:Name="contrasenia" Grid.Row="1" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
 
-        <Label Content="CONTRASEÑA :"  Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center"   FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Margin="200,0,0,0"  />
-        <TextBox x:Name="contraseña" Grid.Row="6" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
-
-        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Left" Width="148" Grid.ColumnSpan="2" Margin="339,0,0,0">
-            <Button x:Name="btnrechazar" Content="registrar" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="100"/>
-        </StackPanel>
-
-
+        <Button x:Name="btnVolver" Content="Volver" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="150" Click="btnrechazar_Click" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Margin="0,25,127,25" Grid.RowSpan="2"/>
+        <Button x:Name="btnRegistrar" Content="Registrar Empleado" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="150" Click="btnrechazar_Click" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right" Margin="0,26,141,24" Grid.RowSpan="2"/>
 
     </Grid>
 </Page>
