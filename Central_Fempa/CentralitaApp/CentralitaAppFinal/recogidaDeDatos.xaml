@@ -52,6 +52,12 @@
             <Button x:Name="btnrechazar" Content="Rechazar"   Margin="10" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#ff6961" Width="100" Click="rechazar"/>
         </StackPanel>
 
+        <Popup x:Name="registroRecogidaPopup" Placement="MousePoint" IsOpen="False" >
+            <Border Background="Green" Padding="10">
+                <TextBlock x:Name="registroRecogidaTextBlock" TextAlignment="Center"/>
+            </Border>
+
+        </Popup>
 
 
     </Grid>
