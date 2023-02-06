@@ -1,5 +1,6 @@
 package com.Fempa.Centralita.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
 
@@ -9,7 +10,7 @@ public class Registro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    private String telefono_persona;
+    private int telefono_persona;
     private String email;
     private String empresa;
     private String fecha_hora;
@@ -17,14 +18,16 @@ public class Registro {
     private String nombre_persona;
     private String observaciones;
     @ManyToOne
+    @JsonIgnoreProperties("atendido_por")
     @JsonIgnore
     private Usuario atendido_por;
     @ManyToOne
+    @JsonIgnoreProperties("empleado")
     @JsonIgnore
     private Usuario empleado;
 
 
-    public Registro( String telefono_persona, String email, String empresa, String fecha_hora, String motivo, String nombre_persona, String observaciones, Usuario atendido_por, Usuario empleado) {
+    public Registro( int telefono_persona, String email, String empresa, String fecha_hora, String motivo, String nombre_persona, String observaciones, Usuario atendido_por, Usuario empleado) {
         this.telefono_persona = telefono_persona;
         this.email = email;
         this.empresa = empresa;
@@ -47,11 +50,11 @@ public class Registro {
         this.id = id;
     }
 
-    public String gettelefono_persona() {
+    public int gettelefono_persona() {
         return telefono_persona;
     }
 
-    public void settelefono_persona(String telefono_persona) {
+    public void settelefono_persona(int telefono_persona) {
         this.telefono_persona = telefono_persona;
     }
 

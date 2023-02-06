@@ -1,8 +1,10 @@
 package com.Fempa.Centralita.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,16 +21,18 @@ public class Usuario {
     @Column(columnDefinition = "boolean default false")
     private Boolean rol;
     @OneToMany (mappedBy = "atendido_por")
+    @JsonIgnoreProperties("llamadas_atendidos")
     @JsonIgnore //Para que no se muestre en el JSON de la API
     List<Registro> llamadas_atendidos;
     @OneToMany (mappedBy = "empleado")
+    @JsonIgnoreProperties("empleado")
     @JsonIgnore //Para que no se muestre en el JSON de la API
     List<Registro> registros_empleado;
 
-
-    public Usuario() {
+    protected Usuario(){
+        this.registros_empleado = new ArrayList<Registro>();
+        this.llamadas_atendidos = new ArrayList<Registro>();
     }
-
     public Usuario(
             String nombre_apellido, String email, String password, int telefono, Boolean rol) {
         this.nombre_apellido = nombre_apellido;

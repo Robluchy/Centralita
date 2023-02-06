@@ -41,10 +41,6 @@ namespace CentralitaAppFinal
 
         }
 
-        private void btnregistraDepartamento_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new registrarDepartamento());
-        }
 
 
         private void RegistrarLlamada(string motivo)

@@ -1,5 +1,5 @@
 ﻿using CentralitaAppFinal.Clases;
-using CentralitaAppFinal.fra;
+using CentralitaAppFinal.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,38 +23,55 @@ namespace CentralitaAppFinal
     /// </summary>
     public partial class MainWindow : Window
     {
-        static HttpClient client = new HttpClient();
-        List<Usuario> users = new List<Usuario>();
-        string user = "http://localhost:8080/users";
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        
-        private void inicio_sesion_Click(object sender, RoutedEventArgs e)
-        {
-            
-            frame.NavigationService.Navigate(new Login());
-            
-        }
-
+        static HttpClient client = new HttpClient();
+        List<Usuario> operador = Variables.Operador;
         private void btnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-
-            login.Visibility = Visibility.Hidden;
-            frame.Visibility = Visibility.Visible;
-
-            if (txtUsuario.Text == "admin" && txtContraseña.Password == "admin")
-                
+            string email = txtEmail.Text;
+            string pass = txtPassword.Password;
+            
+            string user = "http://localhost:8080/users/search/findByEmail?email="+txtEmail.Text;
+            var result = client.GetAsync(user).Result;
+            if (result.IsSuccessStatusCode)
             {
-                frame.NavigationService.Navigate(new Admin());
+                var json = result.Content.ReadAsStringAsync().Result;
+                var userJson = Newtonsoft.Json.JsonConvert.DeserializeObject<Usuario>(json);
+                if (userJson.password == pass)
+                {
+                    if (userJson.rol == true)
+                    {
+                        operador.Add(userJson);
+                        Variables.Operador = operador;
+                        MessageBox.Show("Bienvenido " + userJson.nombre_apellidos);
+                        login.Visibility = Visibility.Hidden;
+                        frame.Visibility = Visibility.Visible;
+                        frame.NavigationService.Navigate(new Admin());
+                    }
+                    else
+                    {
+                        operador.Add(userJson);
+                        Variables.Operador = operador;
+                        MessageBox.Show("Bienvenido " + userJson.nombre_apellidos);
+                        login.Visibility = Visibility.Hidden;
+                        frame.Visibility = Visibility.Visible;
+                        frame.NavigationService.Navigate(new recogidaDeDatos());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Contraseña incorrecta");
+                }
             }
             else
             {
-                frame.NavigationService.Navigate(new recogidaDeDatos());
+                MessageBox.Show("Usuario no encontrado");
             }
-
         }
     }
 }

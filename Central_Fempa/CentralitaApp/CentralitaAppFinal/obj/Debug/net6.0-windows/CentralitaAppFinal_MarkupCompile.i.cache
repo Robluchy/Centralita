@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\App.xaml
-71049768625
+51511344869
 
-15586354384
+12-1085161180
 195-954735158
-Admin.xaml;fra\Login.xaml;MainWindow.xaml;MostrarRegistros.xaml;recogidaDeDatos.xaml;registrarDepartamento.xaml;registrarEmpleado.xaml;
+Admin.xaml;MainWindow.xaml;Pages\MostrarRegistros.xaml;Pages\recogidaDeDatos.xaml;Pages\registrarEmpleado.xaml;
 
 True
 
