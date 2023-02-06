@@ -19,9 +19,6 @@
     <Compile Update="recogidaDeDatos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="registrarDepartamento.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="registrarEmpleado.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,9 +37,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="recogidaDeDatos.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="registrarDepartamento.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="registrarEmpleado.xaml">

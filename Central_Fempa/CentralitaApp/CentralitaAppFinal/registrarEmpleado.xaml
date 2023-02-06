@@ -41,5 +41,13 @@
 
         <Button x:Name="btnVolver" Content="Volver" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="150" Click="btnVolver_Empleado" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" />
         <Button x:Name="btnRegistrar" Content="Registrar" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="150" Click="btnRegistrar_Empleado" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" />
+
+        <Popup x:Name="registroEmpleadoPopup" Placement="MousePoint" IsOpen="False" >
+            <Border Background="Green" Padding="10">
+                <TextBlock x:Name="registroEmpleadoTextBlock" TextAlignment="Center"/>
+            </Border>
+            
+        </Popup>
+
     </Grid>
 </Page>
