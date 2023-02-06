@@ -10,36 +10,12 @@
     <Compile Update="Admin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="fra\Login.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="MostrarRegistros.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="recogidaDeDatos.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="registrarEmpleado.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Admin.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="fra\Login.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MostrarRegistros.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="recogidaDeDatos.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="registrarEmpleado.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
