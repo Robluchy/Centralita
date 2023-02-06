@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CentralitaAppFinal
 {
@@ -40,7 +41,6 @@ namespace CentralitaAppFinal
             NavigationService.Navigate(new registrarEmpleado());
 
         }
-
 
 
         private void RegistrarLlamada(string motivo)
@@ -72,40 +72,53 @@ namespace CentralitaAppFinal
             var result = client.PostAsync(registros, content).Result;
             if (result.IsSuccessStatusCode)
             {
-                MessageBoxResult result2 = MessageBox.Show(
-                    "Registro guardado correctamente", "Registro guardado",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                registroTextBlock.Text = "Registro guardado correctamente";
+                registroPopup.IsOpen = true;
             }
             else
             {
-                MessageBoxResult result2 = MessageBox.Show(
-                    "Error al guardar el registro", "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                registroTextBlock.Text = "Error al guardar el registro";
+                registroPopup.IsOpen = true;
             }
+            var timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+            timer.Tick += (s, e) =>
+            {
+                timer.Stop();
+                registroPopup.IsOpen = false;
+            };
         }
 
         private void rechazar_admin(object sender, RoutedEventArgs e)
         {
             string motivo = "llamada rechazada";
             RegistrarLlamada(motivo);
+            registroTextBlock.Text = "Llamada rechazada";
+            registroPopup.IsOpen = true;
         }
 
         private void atiendeRecepcion_admin(object sender, RoutedEventArgs e)
         {
             string motivo = "atendido por recepcion";
             RegistrarLlamada(motivo);
+            registroTextBlock.Text = "Llamada atendida por recepcion";
+            registroPopup.IsOpen = true;
         }
 
         private void envioCorreo_admin(object sender, RoutedEventArgs e)
         {
             string motivo = "envio de correo";
             RegistrarLlamada(motivo);
+            registroTextBlock.Text = "Correo enviado";
+            registroPopup.IsOpen = true;
         }
 
         private void llamadaPasada_admin(object sender, RoutedEventArgs e)
         {
             string motivo = "llamada pasada";
             RegistrarLlamada(motivo);
+
         }
 
     

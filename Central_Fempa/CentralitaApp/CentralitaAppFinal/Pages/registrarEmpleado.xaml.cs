@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CentralitaAppFinal
 {
@@ -34,6 +35,7 @@ namespace CentralitaAppFinal
         }
         private void btnVolver_Empleado(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new Uri("Admin.xaml", UriKind.Relative));
         }
 
         private void btnRegistrar_Empleado(object sender, RoutedEventArgs e)
@@ -41,6 +43,22 @@ namespace CentralitaAppFinal
 
             string nombre = txtNombre.Text;
             string email = txtCorreo.Text;
+
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(email))
+            {
+                registroEmpleadoTextBlock.Text = "Nombre y correo electrónico son obligatorios";
+                registroEmpleadoPopup.IsOpen = true;
+                return;
+            }
+            var timer= new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+            timer.Tick += (s, e) =>
+            {
+                timer.Stop();
+                registroEmpleadoPopup.IsOpen = false;
+            };
+
             string fecha_hora = DateTime.Now.ToString();
             bool rol = false;
             string pass = contrasenia.Text;
@@ -60,17 +78,29 @@ namespace CentralitaAppFinal
             var result = client.PostAsync(user, content).Result;
             if (result.IsSuccessStatusCode)
             {
+                registroEmpleadoTextBlock.Text = "Registro guardado correctamente";
+                registroEmpleadoPopup.IsOpen = true;
                 //clear fields
                 txtNombre.Text = "";
                 txtCorreo.Text = "";
                 contrasenia.Text = "";
                 telefono.Text = "";
-                MessageBox.Show("Empleado registrado correctamente");
+
             }
             else
             {
-                MessageBox.Show("Error al registrar empleado");
+                registroEmpleadoTextBlock.Text = "Error al guardar el registro";
+                registroEmpleadoPopup.IsOpen = true;
+
             }
+            var timer1 = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+            timer.Tick += (s, e) =>
+            {
+                timer.Stop();
+                registroEmpleadoPopup.IsOpen = false;
+            };
+        }
         }
     }
-}

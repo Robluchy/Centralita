@@ -55,7 +55,20 @@
         <TextBox x:Name="txtEmpresa"  Background="#c7f6d4" Grid.Column="1" Grid.Row="3" Margin="10"/>
         <Label Content="Empleado: " HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Height="50" Grid.Row="5" Width="170"/>
 
-        <ComboBox x:Name="cbEmpleado"  Grid.Column="1" Grid.Row="5" Margin="10"/>
+        <ComboBox x:Name="cbEmpleado"  Grid.Column="1" Grid.Row="5" Margin="10" IsEditable="True" IsTextSearchEnabled="True">
+            <ComboBoxItem>Dionny</ComboBoxItem>
+            <ComboBoxItem>Maria</ComboBoxItem>
+            <ComboBoxItem>Miguel</ComboBoxItem>
+            <ComboBoxItem>Campa</ComboBoxItem>
+            <ComboBoxItem>Jaula</ComboBoxItem>
+            <ComboBoxItem>Fer</ComboBoxItem>
+        </ComboBox>
+
+        <Popup x:Name="registroPopup" Placement="MousePoint" IsOpen="False" >
+            <Border Background="Green" Padding="10">
+                <TextBlock x:Name="registroTextBlock" TextAlignment="Center"/>
+            </Border>
+        </Popup>
 
         <TextBox x:Name="txtCorreo" Background="#c7f6d4" Grid.Column="1" Grid.Row="4" Margin="10"/>
     </Grid>
