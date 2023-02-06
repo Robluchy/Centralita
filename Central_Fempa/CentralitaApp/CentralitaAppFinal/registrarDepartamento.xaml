@@ -6,10 +6,11 @@
       xmlns:local="clr-namespace:CentralitaAppFinal"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-       Background="#CDCDCd"
-      Title="registrarDepartamento">
+      Title="registrarDepartamento"
+      Background="#CDCDCd">
 
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -17,7 +18,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -25,17 +26,18 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="CREAR DEPARTAMENTO :" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="30" Margin="280,42,0,0"  />
+        <Label Content="NOMBRE :"  Grid.Row="1" HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"  />
+
+        <Label Content=" EMAIL :"   Grid.Row="2" HorizontalAlignment="Center"   FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
+        <TextBox x:Name="txtCorreo" Grid.Row="2" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
+
+        <Label Content="TELEFONO :"  Grid.Row="3" HorizontalAlignment="Center"    FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
+        <TextBox x:Name="telefono" Grid.Row="3" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
 
 
-        <Label Content="NOMBRE DEPARTAMENTO :" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Margin="148,18,0,0"  />
-        <TextBox x:Name="txtNomDeapartamento" Grid.Row="2" Grid.Column="1"  Margin="10,10,72,10" Width="325" Height="35" />
-
-        <Button x:Name="btnRegistrarDept" Click="btnRegistrarDept_Click" Content="Registrar departamento"  FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#fdfd96" Height="50" Grid.ColumnSpan="2" Margin="280,63,301,37" Grid.Row="3" Grid.RowSpan="2" />
-
-
-
-
+        <Button x:Name="btnVolver" Content="Volver" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="150" Click="btnVolver_Clic" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" />
+        <Button x:Name="btnRegistrar" Content="Registrar Empleado" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="150" Click="btnRegistrarDepa" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>

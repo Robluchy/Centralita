@@ -32,27 +32,27 @@ namespace CentralitaAppFinal
         {
             InitializeComponent();
         }
+        private void btnVolver_Empleado(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("MainWindow.xaml", UriKind.Relative));
+        }
 
-        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        private void btnRegistrar_Empleado(object sender, RoutedEventArgs e)
         {
 
             string nombre = txtNombre.Text;
             string email = txtCorreo.Text;
             string fecha_hora = DateTime.Now.ToString();
             bool rol = false;
-            string DNI = dni.Text;
             string pass = contrasenia.Text;
             string TELEFONO = telefono.Text;
-            string DEPARTAMENTO = cbDepa.Text;
 
             JObject json = new JObject();
             json["nombre"] = nombre;
             json["email"] = email;
             json["contrasenia"] = pass;
             json["fecha_hora"] = fecha_hora;
-            json["DNI"] = DNI;
             json["TELEFONO"] = TELEFONO;
-            json["DEPARTAMENTO"] = DEPARTAMENTO;
 
 
             string jsonString = json.ToString();
@@ -71,11 +71,6 @@ namespace CentralitaAppFinal
                     "Error al guardar el usuario", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        private void btnrechazar_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

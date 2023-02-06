@@ -11,10 +11,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    private String nombre;
-    private String apellidos;
+    private String nombre_apellido;
     @Column(unique = true)
-    private String dni;
     private String email;
     private String password;
     private int telefono;
@@ -32,11 +30,8 @@ public class Usuario {
     }
 
     public Usuario(
-            String nombre, String apellidos, String dni, String email, String password, int telefono,
-                   Boolean rol) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.dni = dni;
+            String nombre_apellido, String email, String password, int telefono, Boolean rol) {
+        this.nombre_apellido = nombre_apellido;
         this.email = email;
         this.password = password;
         this.telefono = telefono;
@@ -44,12 +39,10 @@ public class Usuario {
     }
 
     public Usuario(
-            Long id, String nombre, String apellidos, String dni, String email, String password,
+            Long id, String nombre_apellido, String email, String password,
             int telefono, Boolean rol, List<Registro> llamadas_atendidos, List<Registro> registros_empleado) {
         this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.dni = dni;
+        this.nombre_apellido = nombre_apellido;
         this.email = email;
         this.password = password;
         this.telefono = telefono;
@@ -66,28 +59,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombre_apellido() {
+        return nombre_apellido;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setNombre_apellido(String nombre_apellido) {
+        this.nombre_apellido = nombre_apellido;
     }
 
     public String getEmail() {
@@ -143,13 +120,13 @@ public class Usuario {
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", dni='" + dni + '\'' +
+                ", nombre_apellido='" + nombre_apellido + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", telefono=" + telefono +
                 ", rol=" + rol +
+                ", llamadas_atendidos=" + llamadas_atendidos +
+                ", registros_empleado=" + registros_empleado +
                 '}';
     }
 }

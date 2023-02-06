@@ -23,9 +23,9 @@ public class CentralitaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Usuario javier = new Usuario("Javier", "perez", "X21232222", "javier@faus.com", "123456", 212, false);
-		Usuario miriam = new Usuario("Miriam", "perez", "X55553215", "miriam@perez.com", "123456", 212, false);
-		Usuario juan = new Usuario("Juan", "perez", "X2313213z", "juan@perez.com","123456", 212, false);
+		Usuario javier = new Usuario("Javier perez",  "javier@faus.com", "123456", 212, false);
+		Usuario miriam = new Usuario("Miriam perez", "miriam@perez.com", "123456", 212, false);
+		Usuario juan = new Usuario("Juan perez", "juan@perez.com","123456", 212, false);
 
 		Registro r1;
 		r1 = new Registro("56345234321","sergio@gmail.com","NTT","25/01/2023","llamada rechazada","Sergio","quiere registrarse",juan, miriam);
