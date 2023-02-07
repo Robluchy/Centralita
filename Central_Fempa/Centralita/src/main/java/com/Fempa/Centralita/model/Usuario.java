@@ -20,11 +20,11 @@ public class Usuario {
     private int telefono;
     @Column(columnDefinition = "boolean default false")
     private Boolean rol;
-    @OneToMany (mappedBy = "atendido_por")
+    @OneToMany (mappedBy = "atendido_por", fetch = FetchType.EAGER)
     @JsonIgnoreProperties("llamadas_atendidos")
     @JsonIgnore //Para que no se muestre en el JSON de la API
     List<Registro> llamadas_atendidos;
-    @OneToMany (mappedBy = "empleado")
+    @OneToMany (mappedBy = "empleado", fetch = FetchType.EAGER)
     @JsonIgnoreProperties("empleado")
     @JsonIgnore //Para que no se muestre en el JSON de la API
     List<Registro> registros_empleado;
@@ -129,8 +129,6 @@ public class Usuario {
                 ", password='" + password + '\'' +
                 ", telefono=" + telefono +
                 ", rol=" + rol +
-                ", llamadas_atendidos=" + llamadas_atendidos +
-                ", registros_empleado=" + registros_empleado +
                 '}';
     }
 }

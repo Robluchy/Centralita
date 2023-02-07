@@ -30,7 +30,7 @@ namespace CentralitaAppFinal
         }
 
         static HttpClient client = new HttpClient();
-        List<Usuario> operador = Variables.Operador;
+        
         private void btnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
             string email = txtEmail.Text;
@@ -41,13 +41,13 @@ namespace CentralitaAppFinal
             if (result.IsSuccessStatusCode)
             {
                 var json = result.Content.ReadAsStringAsync().Result;
+                MessageBox.Show(json);
                 var userJson = Newtonsoft.Json.JsonConvert.DeserializeObject<Usuario>(json);
                 if (userJson.password == pass)
                 {
                     if (userJson.rol == true)
                     {
-                        operador.Add(userJson);
-                        Variables.Operador = operador;
+                        Variables.Operador = userJson;
                         MessageBox.Show("Bienvenido " + userJson.nombre_apellidos);
                         login.Visibility = Visibility.Hidden;
                         frame.Visibility = Visibility.Visible;
@@ -55,8 +55,7 @@ namespace CentralitaAppFinal
                     }
                     else
                     {
-                        operador.Add(userJson);
-                        Variables.Operador = operador;
+                        Variables.Operador = userJson;
                         MessageBox.Show("Bienvenido " + userJson.nombre_apellidos);
                         login.Visibility = Visibility.Hidden;
                         frame.Visibility = Visibility.Visible;

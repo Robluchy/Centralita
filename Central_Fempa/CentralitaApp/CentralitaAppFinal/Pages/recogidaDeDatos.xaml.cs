@@ -18,7 +18,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace CentralitaAppFinal
 {
@@ -56,7 +55,7 @@ namespace CentralitaAppFinal
             motivo = motivo;
             string nombre_persona = txtNombre.Text;
             string observaciones = txtObservaciones.Text;
-            string atendido_por_id = "1";
+            string atendido_por_id = Variables.Operador.id.ToString();
             string empleado_id = txtEmpleado.Text;
 
             JObject json = new JObject();
@@ -76,63 +75,40 @@ namespace CentralitaAppFinal
             var result = client.PostAsync(registros, content).Result;
             if (result.IsSuccessStatusCode)
             {
-                registroRecogidaTextBlock.Text = "Registro guardado correctamente";
-                registroRecogidaPopup.IsOpen = true;
-                //clear fields
-                txtNombre.Text = "";
-                txtCorreo.Text = "";
-                txtTelefono.Text = "";
-                txtEmpresa.Text = "";
-                txtObservaciones.Text = "";
-                txtEmpleado.Text = "";
-                
-
+                MessageBoxResult result2 = MessageBox.Show(
+                    "Registro guardado correctamente", "Registro guardado",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                registroRecogidaTextBlock.Text = "Error al guardar el registro";
-                registroRecogidaPopup.IsOpen = true;
+                MessageBoxResult result2 = MessageBox.Show(
+                    "Error al guardar el registro", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            var timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Start();
-            timer.Tick += (s, e) =>
-            {
-                timer.Stop();
-                registroRecogidaPopup.IsOpen = false;
-            };
         }
         
         private void rechazar(object sender, RoutedEventArgs e)
         {
             string motivo = "llamada rechazada";
             RegistrarLlamada(motivo);
-            registroRecogidaTextBlock.Text = "Llamada rechazada";
-            registroRecogidaPopup.IsOpen = true;
         }
 
         private void atiendeRecepcion(object sender, RoutedEventArgs e)
         {
             string motivo = "atendido por recepcion";
             RegistrarLlamada(motivo);
-            registroRecogidaTextBlock.Text = "Llamada atendida por recepcion";
-            registroRecogidaPopup.IsOpen = true;
         }
 
         private void envioCorreo(object sender, RoutedEventArgs e)
         {
             string motivo = "envio de correo";
             RegistrarLlamada(motivo);
-            registroRecogidaTextBlock.Text = "Correo enviado";
-            registroRecogidaPopup.IsOpen = true;
         }
 
         private void llamadaPasada(object sender, RoutedEventArgs e)
         {
             string motivo = "llamada pasada";
             RegistrarLlamada(motivo);
-            registroRecogidaTextBlock.Text = "Llamada pasada";
-            registroRecogidaPopup.IsOpen = true;
         }
 
     }

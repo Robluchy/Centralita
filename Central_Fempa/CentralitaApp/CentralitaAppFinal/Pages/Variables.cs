@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CentralitaAppFinal.Pages
 {
-    internal class Variables
+    internal static class Variables
     {
         public static List<Usuario> ListaUsuarios { get; set; } = new List<Usuario>();
-        public static List<Usuario> Operador { get; set; } = new List<Usuario>();
+        public static Usuario Operador { get; set; } = null;
 
     }
 }

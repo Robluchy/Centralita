@@ -17,11 +17,11 @@ public class Registro {
     private String motivo;
     private String nombre_persona;
     private String observaciones;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties("atendido_por")
     @JsonIgnore
     private Usuario atendido_por;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties("empleado")
     @JsonIgnore
     private Usuario empleado;
