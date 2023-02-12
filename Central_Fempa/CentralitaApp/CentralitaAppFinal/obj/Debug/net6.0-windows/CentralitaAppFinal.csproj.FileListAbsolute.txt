@@ -101,3 +101,4 @@ C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\Centralita
 C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\Pages\MostrarRegistros.baml
 C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\Pages\recogidaDeDatos.baml
 C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\obj\Debug\net6.0-windows\Pages\registrarEmpleado.baml
+C:\Users\34654\Videos\Captures\Centralita\Central_Fempa\CentralitaApp\CentralitaAppFinal\bin\Debug\net6.0-windows\credenciales.txt

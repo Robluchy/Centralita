@@ -26,8 +26,8 @@ public class CentralitaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Usuario javier = new Usuario("Javier perez",  "admin@admin.com", "123", 212, true);
-		Usuario miriam = new Usuario("Juanma perez", "juanma@juanma.com", "321", 212, false);
+		Usuario javier = new Usuario("Javier perez",  "a", "1", 212, true);
+		Usuario miriam = new Usuario("Juanma perez", "b", "2", 212, false);
 		Usuario juan = new Usuario("Dionny perez", "dionny@nunes.com","1232", 212, false);
 
 		Registro r1;
@@ -37,12 +37,13 @@ public class CentralitaApplication implements CommandLineRunner {
 		Registro r3;
 		r3 = new Registro(454324124,"dionny@gmail.com","optiva","25/01/2023","llamada pasada","Dionny","quiere registrarse",juan, miriam);
 //
-//		userRepository.save(javier);
-//		userRepository.save(miriam);
-//		userRepository.save(juan);
-//
-//		registroRepository.save(r1);
-//		registroRepository.save(r2);
+		userRepository.save(javier);
+		userRepository.save(miriam);
+		userRepository.save(juan);
+
+		registroRepository.save(r1);
+		registroRepository.save(r2);
+		registroRepository.save(r3);
 
 	}
 }

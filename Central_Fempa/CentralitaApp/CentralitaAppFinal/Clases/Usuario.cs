@@ -8,6 +8,5 @@
         public string password { get; set; }
         public string telefono { get; set; }
         public bool rol { get; set; }
-
     }
 }

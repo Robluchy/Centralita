@@ -37,9 +37,7 @@ namespace CentralitaAppFinal
 
         private void btnregistrarEmpleo_Click(object sender, RoutedEventArgs e)
         {
-
             NavigationService.Navigate(new registrarEmpleado());
-
         }
 
 
@@ -63,8 +61,8 @@ namespace CentralitaAppFinal
             json["motivo"] = motivo;
             json["nombre_persona"] = nombre_persona;
             json["observaciones"] = observaciones;
-            json["atendido_por"] = new JObject { { "id", atendido_por_id } };
-            json["empleado"] = new JObject { { "id", empleado_id } };
+            json["atendido_por"] = atendido_por_id;
+            json["empleado"] = empleado_id;
 
             string jsonString = json.ToString();
 

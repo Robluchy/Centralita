@@ -4,10 +4,13 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,11 +33,12 @@ namespace CentralitaAppFinal
         List<Usuario> usuarios = Variables.ListaUsuarios;
         string registros = "http://localhost:8080/registros";
         string user = "http://localhost:8080/users";
-        
+
         public recogidaDeDatos()
         {
             InitializeComponent();
             rellenarUsers();
+
         }
         public void rellenarUsers()
         {
@@ -43,7 +47,7 @@ namespace CentralitaAppFinal
             if (response.IsSuccessStatusCode)
             {
                 var usuariosJson = response.Content.ReadAsStringAsync().Result;
-               // users = JsonConvert.DeserializeObject<List<Usuario>>(usuariosJson);
+                // users = JsonConvert.DeserializeObject<List<Usuario>>(usuariosJson);
             }
         }
         private void RegistrarLlamada(string motivo)
@@ -55,26 +59,31 @@ namespace CentralitaAppFinal
             motivo = motivo;
             string nombre_persona = txtNombre.Text;
             string observaciones = txtObservaciones.Text;
-            string atendido_por_id = Variables.Operador.id.ToString();
-            string empleado_id = txtEmpleado.Text;
+            string empleado = "http://localhost:8080/users/1";
+            string atendido_por = "http://localhost:8080/users/1";
 
-            JObject json = new JObject();
-            json["telefono_persona"] = telefono_persona;
-            json["email"] = email;
-            json["empresa"] = empresa;
-            json["fecha_hora"] = fecha_hora;
-            json["motivo"] = motivo;
-            json["nombre_persona"] = nombre_persona;
-            json["observaciones"] = observaciones;
-            json["atendido_por"] = new JObject { { "id", atendido_por_id } };
-            json["empleado"] = new JObject { { "id", empleado_id } };
+            var data = new
+            {
+                telefono_persona,
+                email,
+                empresa,
+                fecha_hora,
+                motivo,
+                nombre_persona,
+                observaciones,
+                atendido_por,
+                empleado
+            };
 
-            string jsonString = json.ToString();
-
-            var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+            var json = JsonConvert.SerializeObject(data);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
             var result = client.PostAsync(registros, content).Result;
             if (result.IsSuccessStatusCode)
             {
+                if (motivo == "envio de correo")
+                {
+                    mandarCorreo(telefono_persona, email, empresa, fecha_hora, motivo, nombre_persona, observaciones, atendido_por, empleado);
+                }
                 MessageBoxResult result2 = MessageBox.Show(
                     "Registro guardado correctamente", "Registro guardado",
                     MessageBoxButton.OK, MessageBoxImage.Information);
@@ -86,7 +95,7 @@ namespace CentralitaAppFinal
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
         private void rechazar(object sender, RoutedEventArgs e)
         {
             string motivo = "llamada rechazada";
@@ -111,6 +120,36 @@ namespace CentralitaAppFinal
             RegistrarLlamada(motivo);
         }
 
+        private void mandarCorreo(String telefono_persona, String email, String empresa, String fecha_hora, String motivo, String nombre_persona, String observaciones, String atendido_por, String empleado)
+        {
+            string[] lines = File.ReadAllLines("credenciales.txt");
+            string[] parts = lines[0].Split(':');
+            string emailCampa = parts[0];
+            string password = parts[1];
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress(emailCampa);
+                mail.To.Add(email);
+                mail.Subject = motivo;
+                mail.Body = "telefono de la persona: " + telefono_persona + "email: " + email + "empresa: " + empresa + "fecha y hora: " + fecha_hora + "motivo: " + motivo + "nombre de la persona: " + nombre_persona + "observaciones: " + observaciones + "atendido por: " + atendido_por;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new NetworkCredential(emailCampa, password);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                Console.WriteLine("Correo electrónico enviado");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
     }
+
 }
+
 
