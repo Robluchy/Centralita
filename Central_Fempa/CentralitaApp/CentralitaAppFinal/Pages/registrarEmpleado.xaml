@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CentralitaAppFinal"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-       Background="#CDCDCd"
+      d:DesignHeight="600" d:DesignWidth="900"
+       Background="#094F73"
       Title="registrarEmpleado">
     <Grid>
 
@@ -24,23 +24,24 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Label Content="NOMBRE Y APELLIDO :" Grid.Row="1"  HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"  />
+        <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Background="White"  Grid.ColumnSpan="2" Height="50"/>
         
         <Label Content="CONTRASEÑA :"  Grid.Row="2" HorizontalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center" />
-        <TextBox x:Name="contrasenia" Grid.Row="2" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
+        <TextBox x:Name="password" Grid.Row="2" Grid.Column="1" Background="White"   Grid.ColumnSpan="2" Height="50"/>
 
         <Label Content="TELEFONO :"  Grid.Row="3" HorizontalAlignment="Center"    FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
-        <TextBox x:Name="telefono" Grid.Row="3" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
+        <TextBox x:Name="telefono" Grid.Row="3" Grid.Column="1" Background="White"   Grid.ColumnSpan="2" Height="50"/>
 
         <Label Content=" EMAIL :"   Grid.Row="4" HorizontalAlignment="Center"   FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
-        <TextBox x:Name="txtCorreo" Grid.Row="4" Grid.Column="1" Background="#c7f6d4" Margin="10,10,72,10"/>
+        <TextBox x:Name="txtCorreo" Grid.Row="4" Grid.Column="1" Background="White"   Grid.ColumnSpan="2" Height="50"/>
 
 
-        <Button x:Name="btnVolver" Content="Volver" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="150" Click="btnVolver_Empleado" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" />
-        <Button x:Name="btnRegistrar" Content="Registrar" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#666f88" Width="150" Click="btnRegistrar_Empleado" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" />
+        <Button x:Name="btnVolver" Content="Volver" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="Transparent" Foreground="White" Width="150" Click="btnVolver_Empleado" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" />
+        <Button x:Name="btnRegistrar" Content="Registrar" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="Transparent" Foreground="White" HorizontalAlignment="Left" Width="150" Click="btnRegistrar_Empleado" Grid.Column="2" Grid.Row="6"/>
 
         <Popup x:Name="registroEmpleadoPopup" Placement="MousePoint" IsOpen="False" >
             <Border Background="Green" Padding="10">

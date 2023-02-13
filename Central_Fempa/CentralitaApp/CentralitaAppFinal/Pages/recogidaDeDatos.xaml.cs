@@ -1,55 +1,51 @@
 ﻿using CentralitaAppFinal.Clases;
 using CentralitaAppFinal.Pages;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Input;
+using System.Windows.Threading;
+using System.Linq;
 
 namespace CentralitaAppFinal
 {
-    /// <summary>
-    /// Lógica de interacción para recogidaDeDatos.xaml
-    /// </summary>
     public partial class recogidaDeDatos : Page
     {
         static HttpClient client = new HttpClient();
         List<Usuario> usuarios = Variables.ListaUsuarios;
         string registros = "http://localhost:8080/registros";
-        string user = "http://localhost:8080/users";
 
         public recogidaDeDatos()
         {
             InitializeComponent();
-            rellenarUsers();
+            cargarComboEmpleado();
+            lblUsuConectado.Content = Variables.Operador.nombre_apellido;
 
         }
-        public void rellenarUsers()
+
+        private void cargarComboEmpleado()
         {
-            var json = new WebClient().DownloadString(user);
-            var response = client.GetAsync(user).Result;
-            if (response.IsSuccessStatusCode)
+            if (cbEmpleado != null)
             {
-                var usuariosJson = response.Content.ReadAsStringAsync().Result;
-                // users = JsonConvert.DeserializeObject<List<Usuario>>(usuariosJson);
+                cbEmpleado.Items.Clear();
+                foreach (var items in usuarios)
+                {
+                    ComboBoxItem cbi = new ComboBoxItem();
+                    cbi.Content = items.nombre_apellido;
+                    cbi.Tag = items.id.ToString();
+                    cbEmpleado.Items.Add(cbi);
+                }
             }
         }
+
         private void RegistrarLlamada(string motivo)
         {
             string telefono_persona = txtTelefono.Text;
@@ -59,8 +55,14 @@ namespace CentralitaAppFinal
             motivo = motivo;
             string nombre_persona = txtNombre.Text;
             string observaciones = txtObservaciones.Text;
-            string empleado = "http://localhost:8080/users/1";
-            string atendido_por = "http://localhost:8080/users/1";
+            ComboBoxItem cbi = (ComboBoxItem)cbEmpleado.SelectedItem;
+            var id_e = cbi.Tag.ToString();
+            string email_e = "";
+            email_e  = (from u in usuarios where u.id == id_e select u.email).FirstOrDefault();
+            string empleado = "http://localhost:8080/users/" + cbi.Tag.ToString();
+            string atendido_por = "http://localhost:8080/users/" + Variables.Operador.id;
+            string atendido_porNombre = Variables.Operador.nombre_apellido;
+
 
             var data = new
             {
@@ -82,45 +84,61 @@ namespace CentralitaAppFinal
             {
                 if (motivo == "envio de correo")
                 {
-                    mandarCorreo(telefono_persona, email, empresa, fecha_hora, motivo, nombre_persona, observaciones, atendido_por, empleado);
+                    mandarCorreo(telefono_persona, email, email_e, empresa, fecha_hora, motivo, nombre_persona, observaciones, atendido_porNombre, empleado);
+                    registroRecogidaTextBlock.Text = "Registro guardado correctamente";
+                    registroRecogidaPopup.IsOpen = true;
                 }
-                MessageBoxResult result2 = MessageBox.Show(
-                    "Registro guardado correctamente", "Registro guardado",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                registroRecogidaTextBlock.Text = "Registro guardado correctamente";
+                registroRecogidaPopup.IsOpen = true;
             }
             else
             {
-                MessageBoxResult result2 = MessageBox.Show(
-                    "Error al guardar el registro", "Error",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                registroRecogidaTextBlock.Text = "Error al guardar el registro";
+                registroRecogidaPopup.IsOpen = true;
             }
+            var timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+            timer.Tick += (s, e) =>
+            {
+                timer.Stop();
+                registroRecogidaPopup.IsOpen = false;
+            };
         }
-
         private void rechazar(object sender, RoutedEventArgs e)
         {
             string motivo = "llamada rechazada";
             RegistrarLlamada(motivo);
+            registroRecogidaTextBlock.Text = "Llamada rechazada";
+            registroRecogidaPopup.IsOpen = true;
         }
 
         private void atiendeRecepcion(object sender, RoutedEventArgs e)
         {
             string motivo = "atendido por recepcion";
             RegistrarLlamada(motivo);
+            registroRecogidaTextBlock.Text = "Llamada atendida por recepcion";
+            registroRecogidaPopup.IsOpen = true;
         }
 
         private void envioCorreo(object sender, RoutedEventArgs e)
         {
             string motivo = "envio de correo";
             RegistrarLlamada(motivo);
+            registroRecogidaTextBlock.Text = "Correo enviado";
+            registroRecogidaPopup.IsOpen = true;
+            
         }
 
         private void llamadaPasada(object sender, RoutedEventArgs e)
         {
             string motivo = "llamada pasada";
             RegistrarLlamada(motivo);
+            registroRecogidaTextBlock.Text = "Llamada pasada";
+            registroRecogidaPopup.IsOpen = true;
         }
 
-        private void mandarCorreo(String telefono_persona, String email, String empresa, String fecha_hora, String motivo, String nombre_persona, String observaciones, String atendido_por, String empleado)
+        private void mandarCorreo(String telefono_persona, String email, String email_e, String empresa, String fecha_hora, String motivo, String nombre_persona, String observaciones, String atendido_porNombre, String empleado)
         {
             string[] lines = File.ReadAllLines("credenciales.txt");
             string[] parts = lines[0].Split(':');
@@ -132,24 +150,67 @@ namespace CentralitaAppFinal
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
                 mail.From = new MailAddress(emailCampa);
-                mail.To.Add(email);
+                mail.To.Add(email_e);
                 mail.Subject = motivo;
-                mail.Body = "telefono de la persona: " + telefono_persona + "email: " + email + "empresa: " + empresa + "fecha y hora: " + fecha_hora + "motivo: " + motivo + "nombre de la persona: " + nombre_persona + "observaciones: " + observaciones + "atendido por: " + atendido_por;
+                LinkedResource logo = new LinkedResource("logo_fempa.png");
+                logo.ContentId = "logo";
+                string htmlBody = "<html><head><style>body { font-family: Arial, sans-serif; } .header { background-color: #f2f2f2; padding: 20px; text-align: center; } .header img { width: 150px; } .content { padding: 20px; } .info { margin-bottom: 20px; } .info p { margin: 0; font-size: 14px; }</style></head><body>";
+                htmlBody += "<div class='content'>";
+                htmlBody += "<div class='info'><p>Telefono de la persona: " + telefono_persona + "</p><p>Email: " + email + "</p><p>Empresa: " + empresa + "</p><p>Fecha y hora: " + fecha_hora + "</p></div>";
+                htmlBody += "<p><strong>Motivo:</strong> " + motivo + "</p>";
+                htmlBody += "<p><strong>Señor(a) </strong> " + nombre_persona + "</p>";
+                htmlBody += "<p><strong>Observaciones:</strong> " + observaciones + "</p>";
+                htmlBody += "<p><strong>Atendido por:</strong> " + atendido_porNombre + "</p>";
+                htmlBody += "</div><br><br></body></html>";
+                //htmlBody += "<br><br><img src=cid:logo>";
+                AlternateView htmlView = AlternateView.CreateAlternateViewFromString(htmlBody + "<img src=cid:logo>", null, "text/html");
+                htmlView.LinkedResources.Add(logo);
+                mail.AlternateViews.Add(htmlView);
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new NetworkCredential(emailCampa, password);
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);
-                Console.WriteLine("Correo electrónico enviado");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
         }
-    }
 
+        private void txtTelefono_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void txtCorreo_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^a-zA-Z0-9@.]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void txtNombre_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^a-zA-Z ]+");
+            e.Handled = regex.IsMatch(e.Text);
+
+        }
+
+        private void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            Variables.Operador = null;
+            new MainWindow().Show();
+            DependencyObject parent = VisualTreeHelper.GetParent(this);
+            while (!(parent is Window))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+            ((Window)parent).Close();
+        }
+
+    }
 }
 
 

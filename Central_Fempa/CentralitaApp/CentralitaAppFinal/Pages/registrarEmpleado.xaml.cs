@@ -59,33 +59,30 @@ namespace CentralitaAppFinal
                 registroEmpleadoPopup.IsOpen = false;
             };
 
-            string fecha_hora = DateTime.Now.ToString();
+            
             bool rol = false;
-            string pass = contrasenia.Text;
+            string pass = password.Text;
             string TELEFONO = telefono.Text;
+            var data = new
+            {
+                nombre,
+                email,
+                pass,
+                rol,
+                TELEFONO
+            };
 
-            JObject json = new JObject();
-            json["nombre"] = nombre;
-            json["email"] = email;
-            json["contrasenia"] = pass;
-            json["fecha_hora"] = fecha_hora;
-            json["TELEFONO"] = TELEFONO;
-
-
-            string jsonString = json.ToString();
-
-            var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+            var json = JsonConvert.SerializeObject(data);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
             var result = client.PostAsync(user, content).Result;
             if (result.IsSuccessStatusCode)
             {
                 registroEmpleadoTextBlock.Text = "Registro guardado correctamente";
                 registroEmpleadoPopup.IsOpen = true;
-                //clear fields
                 txtNombre.Text = "";
                 txtCorreo.Text = "";
-                contrasenia.Text = "";
+                password.Text = "";
                 telefono.Text = "";
-
             }
             else
             {
