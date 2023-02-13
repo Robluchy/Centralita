@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CentralitaAppFinal"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
-       Background="#094F73"
+      d:DesignHeight="600" d:DesignWidth="1000"
+       Background="#5d9b9b"
       Title="recogidaDeDatos">
 
     <Grid>
@@ -30,9 +30,9 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="lblUsuConectado"  Content="" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="15"  />
-        <Button x:Name="btnCerrarSesion" Content="Cerrar Sesión" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Background="Transparent" Foreground="White" FontFamily="Tw Cen MT Condensed Extra Bold"  Width="150" FontSize="20" BorderBrush="White" Click="btnCerrarSesion_Click" />
+        <Button x:Name="btnCerrarSesion" Content="Cerrar Sesión" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Background="Transparent"  FontFamily="Tw Cen MT Condensed Extra Bold"  Width="150" FontSize="20" BorderBrush="White" Click="btnCerrarSesion_Click" />
 
-        <Label Content="NOMBRE Y APELLIDO :" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="15"/>
+        <Label Content="NOMBRE Y APELLIDO * :" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="15"/>
         <TextBox x:Name="txtNombre" FontSize="18"  VerticalContentAlignment="Center" Margin="10" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2" Background="#FFFFFF"  />
 
         <Label Content=" CORREO :" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="15"  />
@@ -44,7 +44,7 @@
         <Label Content="EMPRESA :" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="15"  />
         <TextBox x:Name="txtEmpresa" FontSize="18"  VerticalContentAlignment="Center" Margin="10" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#FFFFFF" />
 
-        <Label Content="EMPLEADO :" Grid.Row="5" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="15"  />
+        <Label Content="EMPLEADO * :" Grid.Row="5" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="15"  />
         <ComboBox x:Name="cbEmpleado"   FontSize="18"  VerticalContentAlignment="Center" Margin="10"  Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" IsEditable="True" IsTextSearchEnabled="True" />
 
         <Label Content="OBSERVACIONES :" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="15" />

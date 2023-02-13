@@ -52,6 +52,16 @@ namespace CentralitaAppFinal
             NavigationService.Navigate(new registrarEmpleado());
         }
 
+        private void clearFields()
+        {
+            txtTelefono.Text = "";
+            txtCorreo.Text = "";
+            txtEmpresa.Text = "";
+            txtNombre.Text = "";
+            txtObservaciones.Text = "";
+            cbEmpleado.SelectedIndex = -1;
+        }
+
         private void RegistrarLlamada(string motivo)
         {
             string telefono_persona = txtTelefono.Text;
@@ -93,14 +103,17 @@ namespace CentralitaAppFinal
                     mandarCorreo(telefono_persona, email, email_e, empresa, fecha_hora, motivo, nombre_persona, observaciones, atendido_porNombre, empleado);
                     registroTextBlock.Text = "Registro guardado correctamente";
                     registroPopup.IsOpen = true;
+                    clearFields();
                 }
                 registroTextBlock.Text = "Registro guardado correctamente";
                 registroPopup.IsOpen = true;
+                clearFields();
             }
             else
             {
                 registroTextBlock.Text = "Error al guardar el registro";
                 registroPopup.IsOpen = true;
+                clearFields();
             }
             var timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -158,7 +171,7 @@ namespace CentralitaAppFinal
             try
             {
                 MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                SmtpClient SmtpServer = new SmtpClient("smtp-mail.outlook.com");
 
                 mail.From = new MailAddress(emailCampa);
                 mail.To.Add(email_e);

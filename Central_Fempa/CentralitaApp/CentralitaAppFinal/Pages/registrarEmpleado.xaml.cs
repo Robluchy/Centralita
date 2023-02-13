@@ -1,21 +1,13 @@
 ﻿using CentralitaAppFinal.Clases;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace CentralitaAppFinal
@@ -40,7 +32,6 @@ namespace CentralitaAppFinal
 
         private void btnRegistrar_Empleado(object sender, RoutedEventArgs e)
         {
-
             string nombre = txtNombre.Text;
             string email = txtCorreo.Text;
 
@@ -60,18 +51,18 @@ namespace CentralitaAppFinal
             };
 
             
-            bool rol = false;
+            int rol = 0;
             string pass = password.Text;
-            string TELEFONO = telefono.Text;
+            string telefono = telefonoE.Text;
+            
             var data = new
             {
                 nombre,
                 email,
                 pass,
-                rol,
-                TELEFONO
+                telefono,
+                rol
             };
-
             var json = JsonConvert.SerializeObject(data);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var result = client.PostAsync(user, content).Result;
@@ -82,7 +73,8 @@ namespace CentralitaAppFinal
                 txtNombre.Text = "";
                 txtCorreo.Text = "";
                 password.Text = "";
-                telefono.Text = "";
+                telefonoE.Text = "";
+
             }
             else
             {
@@ -99,5 +91,11 @@ namespace CentralitaAppFinal
                 registroEmpleadoPopup.IsOpen = false;
             };
         }
+        private void txtTelefono_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
+
     }
+}

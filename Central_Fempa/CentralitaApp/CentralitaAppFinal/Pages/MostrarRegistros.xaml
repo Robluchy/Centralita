@@ -5,15 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CentralitaAppFinal"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Background="#5d9b9b"
       Title="MostrarRegistros">
 
     <Grid>
 
-        <DataGrid x:Name="grid" d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False" Grid.RowSpan="2" Grid.Row="2" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="10">
+            <Label Content="Registros" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,50,0"/>
+            <Button x:Name="btnImprimir" Content="Imprimir" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="#77dd77" Width="90" Height="30" Click="btnImprimir_Click"/>
+        </StackPanel>
+        <DataGrid x:Name="grid" Margin="30" d:ItemsSource="{d:SampleData ItemCount=5}" AutoGenerateColumns="False" Grid.Row="0" Grid.Column="0" >
 
             <DataGrid.Columns>
-
                 <DataGridTextColumn Visibility="Hidden" Header="Indentidador"  Binding="{Binding Path=id}"/>
                 <DataGridTextColumn Header="email" Binding="{Binding Path=email}"/>
                 <DataGridTextColumn Header="empresa" Binding="{Binding Path=empresa}"/>
@@ -22,11 +34,9 @@
                 <DataGridTextColumn Header="nombre" Binding="{Binding Path=nombre_persona}"/>
                 <DataGridTextColumn Header="observaciones" Binding="{Binding Path=observaciones}"/>
                 <DataGridTextColumn Header="telefono" Binding="{Binding Path=telefono_persona}"/>
-                <DataGridTextColumn Header="atiende" Binding="{Binding Path=atendido_por_id}"/>
-                <DataGridTextColumn Header="empleado" Binding="{Binding Path=empleado_id}"/>
-
             </DataGrid.Columns>
         </DataGrid>
+
 
     </Grid>
 </Page>

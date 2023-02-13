@@ -5,14 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CentralitaAppFinal"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
-       Background="#094F73"
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Background="#5d9b9b"
       Title="registrarEmpleado">
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -27,22 +25,25 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="NOMBRE Y APELLIDO :" Grid.Row="1"  HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Background="White"  Grid.ColumnSpan="2" Height="50"/>
+        <Label Content="Alta usuarios" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" />
+
+        <Label Content="NOMBRE Y APELLIDO * :" Grid.Row="1"  HorizontalAlignment="Center" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtNombre" VerticalContentAlignment="Center" FontSize="18" Grid.Row="1" Grid.Column="1" Margin="10" Background="White"  Grid.ColumnSpan="2" Height="50"/>
         
         <Label Content="CONTRASEÑA :"  Grid.Row="2" HorizontalAlignment="Center"  FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center" />
-        <TextBox x:Name="password" Grid.Row="2" Grid.Column="1" Background="White"   Grid.ColumnSpan="2" Height="50"/>
+        <TextBox x:Name="password" VerticalContentAlignment="Center" FontSize="18"  Grid.Row="2" Grid.Column="1" Background="White" Margin="10"  Grid.ColumnSpan="2" Height="50"/>
 
         <Label Content="TELEFONO :"  Grid.Row="3" HorizontalAlignment="Center"    FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
-        <TextBox x:Name="telefono" Grid.Row="3" Grid.Column="1" Background="White"   Grid.ColumnSpan="2" Height="50"/>
+        <TextBox x:Name="telefonoE" VerticalContentAlignment="Center" FontSize="18"  Grid.Row="3" Grid.Column="1" Background="White"  Margin="10" Grid.ColumnSpan="2" Height="50" PreviewTextInput="txtTelefono_PreviewTextInput"/>
 
-        <Label Content=" EMAIL :"   Grid.Row="4" HorizontalAlignment="Center"   FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
-        <TextBox x:Name="txtCorreo" Grid.Row="4" Grid.Column="1" Background="White"   Grid.ColumnSpan="2" Height="50"/>
+        <Label Content=" EMAIL * :"   Grid.Row="4" HorizontalAlignment="Center"   FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" VerticalAlignment="Center"  />
+        <TextBox x:Name="txtCorreo" VerticalContentAlignment="Center" FontSize="18"  Grid.Row="4" Grid.Column="1" Background="White" Margin="10"  Grid.ColumnSpan="2" Height="50"/>
 
-
-        <Button x:Name="btnVolver" Content="Volver" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="Transparent" Foreground="White" Width="150" Click="btnVolver_Empleado" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" />
-        <Button x:Name="btnRegistrar" Content="Registrar" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="18" Background="Transparent" Foreground="White" HorizontalAlignment="Left" Width="150" Click="btnRegistrar_Empleado" Grid.Column="2" Grid.Row="6"/>
-
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnRegistrar" Content="REGISTRAR" Background="White" Height="50" Width="150"  FontSize="18" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" Margin="10" Click="btnRegistrar_Empleado"/>
+            <Button x:Name="btnCancelar" Content="VOLVER" Background="White"  FontSize="18" Width="150" FontWeight="Bold" FontFamily="Tw Cen MT Condensed Extra Bold" Margin="10" Click="btnVolver_Empleado"/>
+        </StackPanel>
+        
         <Popup x:Name="registroEmpleadoPopup" Placement="MousePoint" IsOpen="False" >
             <Border Background="Green" Padding="10">
                 <TextBlock x:Name="registroEmpleadoTextBlock" TextAlignment="Center"/>
