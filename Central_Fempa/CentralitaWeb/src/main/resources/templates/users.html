@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Centralita del FEMPA</h1>
+    <h4>Formulario de edicion de usuarios</h4>
+    <a href="/">Volver</a>
+
+    <form action="#" th:action="@{/users/add}" th:object="${usuario}" method="post">
+        <table>
+            <tr>
+                <td><label >Nombre</label></td>
+                <td><input type="text"  th:field="*{nombre_apellido}"></td>
+                <td th:if="${#fields.hasErrors('nombre_apellido')}" th:errors="*{nombre_apellido}">
+            </tr>
+            <tr>
+                <td><label>Email</label></td>
+                <td><input type="text" th:field="*{email}"></td>
+                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input type="text" th:field="*{password}"></td>
+            </tr>
+            <tr>
+                <td><label >Telefono</label></td>
+                <td><input type="number" th:field="*{telefono}"></td>
+            </tr>
+            <tr>
+                <td><label >Rol</label></td>
+                <td><input type="text" th:field="*{rol}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Enviar"></td>
+            </tr>
+        </table>
+    </form>
+
+    <h4>Lista de usuarios</h4>
+    <div>
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Telefono</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+            <tr th:each="usuario : ${usuarios}">
+                <td th:text="${usuario.nombre_apellido}"></td>
+                <td th:text="${usuario.email}"></td>
+                <td th:text="${usuario.password}"></td>
+                <td th:text="${usuario.telefono}"></td>
+                <td><a th:href="@{/users/edit/{id}(id=${usuario.id})}">Editar</a></td>
+                <td><a th:href="@{/users/delete/{id}(id=${usuario.id})}">Borrar</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

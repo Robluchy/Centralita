@@ -1,0 +1,131 @@
+package com.fempa.web.model;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+    @NotBlank(message = "Este campo no puede estar vacío")
+    private String nombre_apellido;
+    @Column(unique = true)
+    @NotBlank(message = "Este campo no puede estar vacío")
+    private String email;
+    private String password;
+    private int telefono;
+    @Column(columnDefinition = "boolean default false")
+    private Boolean rol;
+    @OneToMany (mappedBy = "atendido_por", fetch = FetchType.EAGER)
+    List<Registro> llamadas_atendidos;
+    @OneToMany (mappedBy = "empleado", fetch = FetchType.EAGER)
+    List<Registro> registros_empleado;
+
+    protected Usuario(){
+        this.registros_empleado = new ArrayList<Registro>();
+        this.llamadas_atendidos = new ArrayList<Registro>();
+    }
+    public Usuario(
+            String nombre_apellido, String email, String password, int telefono, Boolean rol) {
+        this.nombre_apellido = nombre_apellido;
+        this.email = email;
+        this.password = password;
+        this.telefono = telefono;
+        this.rol = rol;
+    }
+
+    public Usuario(
+            Long id, String nombre_apellido, String email, String password,
+            int telefono, Boolean rol, List<Registro> llamadas_atendidos, List<Registro> registros_empleado) {
+        this.id = id;
+        this.nombre_apellido = nombre_apellido;
+        this.email = email;
+        this.password = password;
+        this.telefono = telefono;
+        this.rol = rol;
+        this.llamadas_atendidos = llamadas_atendidos;
+        this.registros_empleado = registros_empleado;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre_apellido() {
+        return nombre_apellido;
+    }
+
+    public void setNombre_apellido(String nombre_apellido) {
+        this.nombre_apellido = nombre_apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+
+    public Boolean getRol() {
+        return rol;
+    }
+
+    public void setRol(Boolean rol) {
+        this.rol = rol;
+    }
+
+    public List<Registro> getLlamadas_atendidos() {
+        return llamadas_atendidos;
+    }
+
+    public void setLlamadas_atendidos(List<Registro> llamadas_atendidos) {
+        this.llamadas_atendidos = llamadas_atendidos;
+    }
+
+    public List<Registro> getRegistros_empleado() {
+        return registros_empleado;
+    }
+
+    public void setRegistros_empleado(List<Registro> registros_empleado) {
+        this.registros_empleado = registros_empleado;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre_apellido='" + nombre_apellido + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", telefono=" + telefono +
+                ", rol=" + rol +
+                '}';
+    }
+}

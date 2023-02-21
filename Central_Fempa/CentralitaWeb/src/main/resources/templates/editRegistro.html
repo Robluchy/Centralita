@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8 " xmlns:th="http://www.thymeleaf.org">
+    <title>Title</title>
+</head>
+<body>
+<h1>Centralita del FEMPA</h1>
+<h4>Formulario de edicion de llamadas</h4>
+<a href="/">Volver</a>
+
+<form th:action="@{'/registro/edit/' + ${registro.id}}" th:object="${registro}" method="post">
+    <table>
+        <tr>
+            <td><label>Telefono persona</label></td>
+            <td><input type="number" th:field="*{telefono_persona}"></td>
+        </tr>
+        <tr>
+            <td><label>Email</label></td>
+            <td><input type="email" th:field="*{email}"></td>
+        </tr>
+        <tr>
+            <td><label>Empresa</label></td>
+            <td><input type="text" th:field="*{empresa}"></td>
+        </tr>
+        <tr>
+            <td><label>Motivo</label></td>
+            <td><input type="text" th:field="*{motivo}"></td>
+        </tr>
+        <tr>
+            <td><label>Nombre persona</label></td>
+            <td><input type="text" th:field="*{nombre_persona}"></td>
+        </tr>
+        <tr>
+            <td><label>Observaciones</label></td>
+            <td><input type="text" th:field="*{observaciones}"></td>
+        </tr>
+        <tr>
+            <select name="atendido_por">
+                <option th:each="atendido_por : ${atendido_por}" th:value="${atendido_por.id}"
+                        th:text="${atendido_por.nombre_apellido}"></option>
+            </select>
+        </tr>
+        <tr>
+            <select name="empleado">
+                <option th:each="empleado : ${empleado}" th:value="${empleado.id}"
+                        th:text="${empleado.nombre_apellido}"></option>
+            </select>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Enviar"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Centralita del FEMPA</h1>
+<h4>Formulario de llamadas</h4>
+<a href="/">Volver</a>
+
+<form action="#" th:action="@{/registro}" th:object="${registro}" method="post">
+    <table>
+        <tr>
+            <td><label>Telefono persona</label></td>
+            <td><input type="number" th:field="*{telefono_persona}"></td>
+        </tr>
+        <tr>
+            <td><label>Email</label></td>
+            <td><input type="email" th:field="*{email}"></td>
+        </tr>
+        <tr>
+            <td><label>Empresa</label></td>
+            <td><input type="text" th:field="*{empresa}"></td>
+        </tr>
+        <tr>
+            <td><label>Motivo</label></td>
+            <td><input type="text" th:field="*{motivo}"></td>
+        </tr>
+        <tr>
+            <td><label>Nombre persona</label></td>
+            <td><input type="text" th:field="*{nombre_persona}"></td>
+        </tr>
+        <tr>
+            <td><label>Observaciones</label></td>
+            <td><input type="text" th:field="*{observaciones}"></td>
+        </tr>
+        <tr>
+            <select name="atendido_por" id="atendido_por">
+                <option th:each="atendido_por : ${atendido_por}" th:value="${atendido_por.id}"
+                        th:text="${atendido_por.nombre_apellido}"></option>
+            </select>
+        </tr>
+        <tr>
+            <select name="empleado" id="empleado">
+                <option th:each="empleado : ${empleado}" th:value="${empleado.id}"
+                        th:text="${empleado.nombre_apellido}"></option>
+            </select>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Enviar"></td>
+        </tr>
+    </table>
+</form>
+
+<h1>Lista de Registros</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Teléfono Persona</th>
+        <th>Email</th>
+        <th>Empresa</th>
+        <th>Fecha y Hora</th>
+        <th>Motivo</th>
+        <th>Nombre Persona</th>
+        <th>Observaciones</th>
+        <th>Atendido Por</th>
+        <th>Empleado</th>
+        <th>Editar</th>
+        <th>Borrar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="registro : ${manyregistros}">
+        <td th:text="${registro.telefono_persona}"></td>
+        <td th:text="${registro.email}"></td>
+        <td th:text="${registro.empresa}"></td>
+        <td th:text="${registro.fecha_hora}"></td>
+        <td th:text="${registro.motivo}"></td>
+        <td th:text="${registro.nombre_persona}"></td>
+        <td th:text="${registro.observaciones}"></td>
+        <td th:text="${registro.atendido_por.nombre_apellido}"></td>
+        <td th:text="${registro.empleado.nombre_apellido}"></td>
+        <td><a th:href="@{/registro/edit/{id}(id=${registro.id})}">Editar</a></td>
+        <td><a th:href="@{/registro/delete/{id}(id=${registro.id})}">Borrar</a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
